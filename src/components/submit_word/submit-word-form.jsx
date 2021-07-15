@@ -1,24 +1,15 @@
 import React from "react";
 import "./submit-word-form.styles.scss";
 
-import axios from 'axios';
-
-const SubmitWord = ({ translateWord }) => {
-
-    const handleClick = (event) => {
-        console.log("Click");
-        event.preventDefault();
-    }
+const SubmitWord = ({ handleChange, handleSubmit }) => {
 
     return (
-        <div className="display-box">
-            <form action="/action_page.php">
-              <label for="word">Submit Word</label>
-              <input type="text" id="word" name="word" placeholder="Word.."/>
+            <form onSubmit={handleSubmit}>
+              <label>Submit Word</label>
+              <input type="text" id="word" name="word" placeholder="Word.." onChange={handleChange}/>
                 
-              <button onClick={handleClick} className="btn" type="submit" value="Submit"> Submit </button>
+              <button className="btn" type="submit" value="Submit"> Submit </button>
             </form>
-        </div>
     );
 };
 
